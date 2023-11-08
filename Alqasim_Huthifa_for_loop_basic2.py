@@ -82,11 +82,30 @@
 
 
 #8 function takes list, return dictionary that has (sumTotal, average, minimum, maximum, and length), keys with values
-# about_list = {}
-import statistics
-def ultimate_analysis(arr):
-    if not arr:
-        print('Error, list is empty')
-    about_dict = {'sumTotal': sum(arr), 'average': statistics.mean(arr), 'minimum': min(arr), 'maximum': max(arr), 'length': len(arr) }
-    return about_dict
-print(ultimate_analysis([0,1,1,2]))
+# import statistics
+# def ultimate_analysis(arr):
+#     if not arr:
+#         print('Error, list is empty')
+#     about_dict = {'sumTotal': sum(arr), 'average': statistics.mean(arr), 'minimum': min(arr), 'maximum': max(arr), 'length': len(arr) }
+#     return about_dict
+# print(ultimate_analysis([0,1,1,2]))
+
+
+
+#9 function that reverse the list (this can be solved using built in function)
+# def reverse_list(arr):
+#     i=0
+#     j=len(arr)-1
+#     while i<j:
+#         hold = arr[j]
+#         arr[j] = arr[i]
+#         arr[i] = hold
+#         i+=1
+#         j-=1
+#     return arr
+# print(reverse_list([1,2,3]))
+
+#9 can be solved using slicing:
+def reverse_list(arr):
+    return arr[::-1]
+print(reverse_list([1,2,3,4]))
