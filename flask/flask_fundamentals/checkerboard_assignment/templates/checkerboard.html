@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/checkerboard.css')}}">
+    <title>checkerboard</title>
+</head>
+<body>
+
+    <table>
+        {% for i in range(rows): %}
+        <tr>
+            {% for j in range(columns): %}
+            <td class="box color{{ (i+j)%2 }}"></td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        
+    </table>
+
+
+    <!-- the key to solve this issue is by starting html without thinking of backend, to see how could
+    it be done by plain html , so from the picture its look like table!-->
+</body>
+</html>
