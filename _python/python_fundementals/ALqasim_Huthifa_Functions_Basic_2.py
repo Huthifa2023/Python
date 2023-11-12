@@ -22,24 +22,25 @@
 
 
 #4 def will take, array, if len < 2 retun false, check 2nd value , copy all vlaues that > 2nd value
-# def GreaterThanSecond(arr):
-#     if len(arr) < 2:
-#         return False
-#     newarr=[]
-#     for i in range(0, len(arr)):
-#         if arr[i] > arr[1]:
-#             newarr.append(arr[i])
-#     return newarr
-# print(GreaterThanSecond([11,4,55,12,2,3,4,5,6]))
+def GreaterThanSecond(arr):
+    if len(arr) < 2:
+        return False
+    newarr=[]
+    for i in range(0, len(arr)):
+        if arr[i] > arr[1]:
+            newarr.append(arr[i])
+    print(len(newarr))
+    return newarr
+print(GreaterThanSecond([11,4,55,12,2,3,4,5,6]))
 
 
 
 #5 def accepts size and value, return newarr that len=size , all values=value
 
-def Length_Value(size,value):
-    newarr=[]
-    for i in range(size):
-        newarr.append(value)
-    return newarr
+# def Length_Value(size,value):
+#     newarr=[]
+#     for i in range(size):
+#         newarr.append(value)
+#     return newarr
 
-print(Length_Value(5,'ONBON'))
+# print(Length_Value(5,'ONBON'))
