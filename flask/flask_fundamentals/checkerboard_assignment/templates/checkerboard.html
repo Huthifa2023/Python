@@ -12,7 +12,7 @@
         {% for i in range(rows): %}
         <tr>
             {% for j in range(columns): %}
-            <td class="box color{{ (i+j)%2 }}"></td>
+            <td class="box" style="background-color:{{colors[(i+j)%2]}};"></td>
             {% endfor %}
         </tr>
         {% endfor %}
