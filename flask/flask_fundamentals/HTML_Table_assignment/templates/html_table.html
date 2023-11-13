@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Full Name</th>
+        </tr>
+        
+        {% for items in users %}
+        <tr>
+            <td>{{items['first_name']}}</td>
+            <td>{{items['last_name']}}</td>
+            <td>{{items['first_name']}} {{items['last_name']}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
