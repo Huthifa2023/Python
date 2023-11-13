@@ -7,8 +7,8 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/html_table.css') }}">
     <title>HTML_Table</title>
 </head>
-<body>
-    <table class="table table-bordered table-hover"> 
+<body class="w-50 p-4">
+    <table class="table table-bordered table-hover text-center"> 
         <thead class="thead-dark">
             <tr>
                 <th>First Name</th>
@@ -17,10 +17,10 @@
             </tr>
         </thead>
         {% for items in users %}
-        <tr class="table-info">
-            <td>{{items['first_name']}}</td>
-            <td>{{items['last_name']}}</td>
-            <td>{{items['first_name']}} {{items['last_name']}}</td>
+        <tr>
+            <td class="table-primary">{{items['first_name']}}</td>
+            <td class="table-success">{{items['last_name']}}</td>
+            <td class="table-info">{{items['first_name']}} {{items['last_name']}}</td>
         </tr>
         {% endfor %}
     </table>
