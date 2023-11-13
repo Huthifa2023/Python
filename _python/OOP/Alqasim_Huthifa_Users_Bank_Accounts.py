@@ -22,10 +22,15 @@ class BankAccount:
         self.int_rate = int_rate
 
 
+account_test = BankAccount(500)
+
+
 huthifa = Users('Huthifa')
-huthifa.deposit(100,0).deposit(100,0).withdraw(100,0).display_balance(0)
+# huthifa.deposit(100,0).deposit(100,0).withdraw(100,0).display_balance(0)
+huthifa.account.append(account_test)
+huthifa.display_balance(1)
 # print(huthifa.account[0])
 # huthifa.create_account()
-huthifa.create_account()
-huthifa.deposit(100,1).deposit(1023423440,1).withdraw(200,1).display_balance(1)
+# huthifa.create_account()
+# huthifa.deposit(100,1).deposit(1023423440,1).withdraw(200,1).display_balance(1)
 
