@@ -25,3 +25,4 @@ def error_page(e):
 
 if __name__ == "__main__":
     checkerboardAPP.run(debug=True)
+    
