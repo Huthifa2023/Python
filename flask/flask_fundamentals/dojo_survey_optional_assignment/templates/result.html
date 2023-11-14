@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/result.css')}}">
+    <title>Dojo Survey result</title>
+</head>
+<body>
+    <main>
+        <h1>Submitted Info</h1>
+        <div class="flex">
+            <label class="width" for="name">Name:</label>
+            <p class="width" type="text" name="name" id="name">{{name}}</p>
+        </div>
+        <div class="flex">
+            <label class="width" for="location">Dojo Location:</label>
+            <p class="width" id="location">{{location}}</p>
+        </div>
+        <div class="flex">
+            <label class="width" for="Language">Favorite Language:</label>
+            <P class="width" id="Language">{{language}}</p>
+        </div>
+        <div class="flex">
+            <label class="width" for="comment">Comment:</label>
+            <P class="width" name="comment" id="comment">{{comment}}</p>
+        </div>
+
+        <div class="flex">
+            <label class="width" for="gender">user geder:</label>
+            <P class="width" id="gender">{{gender}}</p>
+        </div>
+        <div class="flex">
+            <label class="width" for="swear">will not share this</label>
+            <P class="width" id="swear">{{swear}}</p>
+        </div>
+        <div class="flex">
+            <label class="width" for="instruction">does he read the instructions:</label>
+            <P class="width" id="instruction">{{instruction}}</p>
+        </div>
+
+        <form class="flex" action="/" method="get">
+            <input id="button" type="submit" value="Go Back">
+        </form>
+    </main>
+</body>
+</html>

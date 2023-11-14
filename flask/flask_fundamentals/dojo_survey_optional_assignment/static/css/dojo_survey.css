@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    margin: 20px;
+    padding: 5px;
+    display: flex;
+}
+
+form{
+    padding: 10px;
+    border: 2px solid black;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.flex{
+    display: flex;
+    justify-content:space-between;
+}
+#without_flex{
+    all: none;
+}
+
+.width{
+    width: 200px;
+    margin: 5px;
+}
+
+#button{
+    margin-top: 10px;
+    width: min-content;
+    align-self: self-end;
+}
