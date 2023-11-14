@@ -49,13 +49,15 @@
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="yes" name="swear" id="defaultCheck1">
+                <input value="Yes, agree" class="form-check-input" type="checkbox" name="swear" id="defaultCheck1">
+                <input type="hidden" name="swear" value="No, i dont agree" />
                 <label class="form-check-label" for="defaultCheck1">
                 I swear to not share this
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="yes" name="instruction" id="defaultCheck2">
+                <input value="Yes, agree" class="form-check-input" type="checkbox" name="instruction" id="defaultCheck2">
+                <input type="hidden" name="instruction" value="No, i dont agree" />
                 <label class="form-check-label" for="defaultCheck2">
                 i read the instruction wallah
                 </label>
@@ -69,5 +71,6 @@
             <input class="btn btn-primary" id="button" type="submit" name="submit" value="Button">
         </form>
     </main>
+    <script type="text/javascript" src="{{ url_for('static', filename='dojo_survey.js') }}"></script>
 </body>
 </html>
