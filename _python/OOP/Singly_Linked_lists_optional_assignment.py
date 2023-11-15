@@ -25,12 +25,7 @@ class Slist:
         runner.next = new_node	
         return self
 
-
-
-
-
     def add_at_index(self,position, value):
-
         new_node = Node(value)
         current_node = self.head
         i = 0
@@ -42,9 +37,6 @@ class Slist:
         prev_node.next = new_node
         new_node.next = current_node
         return self
-
-
-
 
     def delete_at_index(self,position):
         if position == 0:
