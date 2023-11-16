@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='counter.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>count visits</title>
+</head>
+<body>
+    <main>
+        <h1>Counter</h1>
+        <span class="text-muted">how many times you visit this page</span>
+        <h1><span class="badge bg-info text-dark text-center">{{session['counter']}} times</span></h1>
+        <section class="d-flex justify-content-between mt-2">
+            <a href="/destroy_session" class="btn btn-danger">Reset</a>
+            <a href="/two" class="btn btn-success">Add manualy 2</a>
+        </section>
+
+        <form action="/add_value" method="post" class="mt-3 form-group">
+            <input name="value" type="number" class="form-control" placeholder="insert a number" required>
+            <button class="btn btn-secondary form-control" type="submit">ADD # Visits</button>
+        </form>
+
+        <a href="/" class="btn btn-primary d-block mt-2">Refresh Page</a>
+    </main>
+    <nav>
+        
+    </nav>
+</body>
+</html>
