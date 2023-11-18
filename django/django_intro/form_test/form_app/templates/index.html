@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+</head>
+<body>
+
+    <h1>Index Page</h1>
+    <h3>Create a User</h3>
+    <form action='/users' method='post'>
+        {% csrf_token %}                                
+        Name: <input type='text' name='name' required>
+        Email: <input type='text' name='email' required>
+        Gender: <select name="gender" id="gender" required>
+            <option value="male">male</option>
+            <option value="femak">female</option>
+            <option value="non">non</option>
+        </select>
+        <button type='submit' aria-required="true">Create User</button>
+    </form>
+
+</body>
+</html>
