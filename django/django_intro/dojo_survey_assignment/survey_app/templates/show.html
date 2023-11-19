@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/show.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <p>{{ request.session.name }}</p>
+    <p>{{request.session.location}}</p>
+    <p>{{request.session.language}}</p>
+    <p>{{request.session.comment}}</p>
+</body>
+</html>
