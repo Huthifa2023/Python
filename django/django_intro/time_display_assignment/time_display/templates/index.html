@@ -8,9 +8,14 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <title>time_display_assignment</title>
 </head>
-<body class="text_center">
-    <h1>Time</h1>
-    <h2>Website for fun</h2>
-    <h3>{{ time }}</h3>
+<body>
+    <main>
+        <h1>Time</h1>
+        <h2>Website for fun</h2>
+        <div>
+        <h3>GMT :{{ time_GMT }}</h3>
+        <h3>GMT+2 :{{ time_GMT_2 }}</h3>
+        </div>
+    </main>
 </body>
 </html>

@@ -1,0 +1,18 @@
+body{
+    text-align: center;
+    background-color: #9198e5;
+}
+
+main{
+    background: linear-gradient(#e66465, #9198e5);
+}
+
+h1{
+    font-size: 500%;
+    
+}
+
+h3{
+    border: 2px groove black;
+    color: gold;
+}
