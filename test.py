@@ -98,12 +98,23 @@ class MyLinkedList:
         return self
     
 
+    def reverse(self):
+        prev = None
+        current = self.head
+        while(current is not None):
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
+        self.head = prev
+        return self
 
 list0 = MyLinkedList()
-list0.addAtTail(1).addAtTail(2).addAtTail(3).addATHead(0).addATIndex(3,'here')
-list0.deleteATIndex(3).print_all_values()
+list0.addAtTail(0).addAtTail(1).addAtTail(2).addAtTail(3).addAtTail(4)
 
-list0.get_val_at_index(4)
+list0.reverse().print_all_values()
 
+#0 1 2 3 4 
 
-
+#next 1
+# currnt.next = none
