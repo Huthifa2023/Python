@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>ninja gold</title>
+</head>
+<body>
+    <h1>Welcome To Ninja Gold Game</h1>
+    <nav>
+        <h2>User Balance: <span class="border border-dark btn btn-lg">{{request.session.user_balance}}</span></h2>
+    </nav>
+    <main>
+        <div>
+            <h3>Farm</h3>
+            <h4>earns (10 - 20 gold)</h4>
+            <a class="btn btn-warning" href="/process">visit!</a>
+        </div>
+        <div>
+            <h3>Cave</h3>
+            <h4>earns (10 - 20 gold)</h4>
+            <a class="btn btn-warning" href="/process">visit!</a>
+        </div>
+        <div>
+            <h3>House</h3>
+            <h4>earns (10 - 20 gold)</h4>
+            <a class="btn btn-warning" href="/process">visit!</a>
+        </div>
+        <div>
+            <h3>Quest</h3>
+            <h4>earns/takes (0 - 50 gold)</h4>
+            <a class="btn btn-warning" href="/gambling">visit!</a>
+        </div>
+    </main>
+
+    <h2 id="h2">Log Activities:</h2>    
+    <footer>
+        <div>
+            {% for i in request.session.log%}
+            <p>{{i}}</p>
+            {% endfor %}
+        </div>
+    </footer>
+
+        <a href="/reset">Reset Game</a>
+</body>
+</html>
