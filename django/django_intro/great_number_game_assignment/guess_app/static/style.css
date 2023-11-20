@@ -1,0 +1,23 @@
+*{
+    padding: 20px;
+    margin: 0;
+}
+
+body{
+    background: rgba(0, 128, 0, 0.3)
+}
+
+
+main{
+    text-align: center;
+}
+
+form{
+    text-align: center;
+    padding: 0px;
+}
+
+.name_name{
+    background: linear-gradient(rgb(184, 218, 184), rgb(123, 139, 123));
+    padding: 3px;
+}

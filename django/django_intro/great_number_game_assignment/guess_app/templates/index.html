@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Greate_Number_Game</title>
+</head>
+<body class="bg-gradient">
+    <main>
+        <h1 class="border border-dark rounded">Great Number Game</h1>
+        <h2>Web For Fun</h2>
+        <h3>Wellcome to the <span class="name_name rounded">"guess the number game"</span></h3>
+        <h4>Try to guess random number between 1 and 100</h4>
+    </main>
+
+
+    {% if request.session.status != 'stop'%}
+    <form method="post" action="/send_num" class="d-flex justify-content-center">
+        {% csrf_token %}
+        <div class="form-row align-items-center">
+            <div class="col-auto">
+                <label class="btn-lg font-weight-light font-italic" for="inlineFormInputGroup">Type Your Guess Here:</label>
+            </div>
+            <div class="col-auto">
+                <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                <div class="input-group mb-2">
+                <input name="num_from_user" type="number" class="form-control btn-lg" id="inlineFormInputGroup" placeholder="1-100" required>
+                </div>
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-danger btn-lg mb-2">Go!</button>
+                <a class="btn btn-dark btn-md mb-2" href="/reset">Change Damn Number!</a>
+            </div>
+        </div>
+    </form>
+    {% endif %}
+
+    {% if request.session.status == 'stop' or request.session.attempts > 5 %}
+    <div class="text-center d-flex justify-content-center">
+        <a class="btn btn-dark btn-md mb-2 w-25" href="/reset">Play Again!</a>
+    </div>
+    {% endif %}
+    
+        {% if request.session.status == 'less' %}
+        <div class="d-flex justify-content-center bg-primary">
+            No less...!!!
+        </div>
+        {% endif %}
+
+        {% if request.session.status == 'more' %}
+        <div class="d-flex justify-content-center bg-warning">
+            No More...!!!
+        </div>
+        {% endif %}
+
+        {% if request.session.status == 'stop' %}
+        <div class="d-flex justify-content-center bg-success bg-gradient border bg-success">
+            <p class="">Congragulations</p>
+        </div>
+        {% endif %}
+
+        {% if request.session.attempts > 5 %}
+        <div class="d-flex justify-content-center bg-success bg-gradient border bg-success">
+            <p class="">mmmmm too bad you lost</p>
+        </div>
+        {% endif %}
+
+
+</body>
+</html>
