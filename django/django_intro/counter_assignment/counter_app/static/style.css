@@ -1,0 +1,31 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+main{
+    background: linear-gradient(gold,black);
+    padding: 20px;
+    text-align: center;
+}
+
+h1{
+    background-color: transparent;
+    color: rgb(20, 20, 20);
+}
+
+h2{
+    padding: 20px;
+    color: rgb(210, 210, 190);
+}
+
+
+h3{
+    background: transparent;
+    color: rgb(215, 212, 212);
+}
+
+h4{
+    color: white;
+    font-size: 250px;
+}

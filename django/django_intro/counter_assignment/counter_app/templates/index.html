@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>counter_assignment</title>
+</head>
+<body>
+    <main>
+        <h1>Counter</h1>
+        <h2>Web for fun</h2>
+        <h3>This page will count how many times you visit it</h3>
+
+        <div class="d-flex justify-content-center">
+            <h4>{{ request.session.counter }}</h4>
+        </div>
+
+        <a class="btn btn-warning btn-lg" href="/destroy">reset</a>
+        <a class="btn btn-info btn-lg" href="add_2"> add 2</a>
+
+        <form action="/add_num" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="exampleInputEmail1">Mad Man? add your number!</label>
+                <input name="num" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="no boundries!" required>
+                <small id="emailHelp" class="form-text text-muted">it will accept minus too!</small>
+            </div>
+            <button type="submit" class="btn btn-lg btn-danger">Craaaaazy</button>
+        </form>
+    </main>
+</body>
+</html>
