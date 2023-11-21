@@ -1,0 +1,26 @@
+main{
+    background-image: url(https://i0.wp.com/www.csscodelab.com/wp-content/uploads/2019/11/stripe-hero-background-effect-html-css.png?w=1062&ssl=1);
+}
+
+
+h1,h4{
+    color: beige;
+}
+
+thead th{
+    position: sticky;
+    top: 0;
+}
+
+
+th{
+    background-color: rgb(48, 47, 47);
+    box-shadow: 1px 1px 0 rgb(99, 97, 97);
+}
+
+
+#table-body{
+    height: 200px;
+    overflow: auto;
+}
+
