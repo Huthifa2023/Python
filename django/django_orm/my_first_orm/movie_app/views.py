@@ -1,3 +1,10 @@
 from django.shortcuts import render
 
-# Create your views here.
+from .models import Movie
+
+
+def index(request):
+    context = {
+    "all_the_movies": Movie.objects.all()
+    }
+    return render(request, "index.html", context)
