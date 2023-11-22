@@ -5,6 +5,7 @@ def main_page(request):
     if 'random_number' not in request.session:
         request.session['random_number'] = int(random.random()*100)
         request.session['attempts'] = 0
+        print(request.session['random_number'])
     return render (request, 'index.html')
 
 
