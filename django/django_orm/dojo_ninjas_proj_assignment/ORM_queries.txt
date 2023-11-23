@@ -45,6 +45,11 @@ last_ninja.dojo
 last_ninja.dojo.name
 
 
+Dojo.objects.create(name="Xmax", city="Gaza", state="GZ", desc="the last branch")
+
+
+
+
 
 
 
