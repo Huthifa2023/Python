@@ -1,0 +1,58 @@
+from dojo_ninjas_app.models import Dojo, Ninja
+
+Dojo.objects.create(name="SBC", city="Ramallah", state="WB")
+Dojo.objects.create(name="Marjo", city="Nablus", state="WB")
+Dojo.objects.create(name="Xmax", city="Gaza", state="GZ")
+
+Dojo.objects.all().delete()
+
+
+Dojo.objects.create(name="SBC", city="Ramallah", state="WB")
+Dojo.objects.create(name="Marjo", city="Nablus", state="WB")
+Dojo.objects.create(name="Xmax", city="Gaza", state="GZ")
+Dojo.objects.all()
+Out[11]: <QuerySet [<Dojo: Dojo object (4)>, <Dojo: Dojo object (5)>, <Dojo: Dojo object (6)>]>
+
+
+Ninja.objects.create(dojo=Dojo.objects.get(id=4), first_name="Huthifa", last_name="Alqasim")
+Ninja.objects.create(dojo=Dojo.objects.get(id=4), first_name="Ali", last_name="qasim")
+Ninja.objects.create(dojo=Dojo.objects.get(id=4), first_name="Mahran", last_name="qasem")
+
+
+Ninja.objects.create(dojo=Dojo.objects.get(id=5), first_name="Jad", last_name="dahi")
+Ninja.objects.create(dojo=Dojo.objects.get(id=5), first_name="maya", last_name="dahi")
+Ninja.objects.create(dojo=Dojo.objects.get(id=5), first_name="sham", last_name="dahe")
+
+
+Ninja.objects.create(dojo=Dojo.objects.get(id=6), first_name="Ben", last_name="moris")
+Ninja.objects.create(dojo=Dojo.objects.get(id=6), first_name="bahi", last_name="mores")
+Ninja.objects.create(dojo=Dojo.objects.get(id=6), first_name="shoma", last_name="mores")
+
+
+
+Ninja.objects.filter(dojo_id=4)
+Dojo.objects.first().ninjas.all()
+
+
+
+Ninja.objects.filter(dojo_id=6)
+Dojo.objects.last().ninjas.all()
+
+
+
+last_ninja = Ninja.objects.last()
+last_ninja.dojo
+last_ninja.dojo.name
+
+
+Dojo.objects.create(name="Xmax", city="Gaza", state="GZ", desc="the last branch")
+
+
+
+
+
+
+
+
+
+

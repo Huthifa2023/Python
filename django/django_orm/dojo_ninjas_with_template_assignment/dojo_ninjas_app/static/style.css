@@ -1,0 +1,188 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+}
+
+main{
+    background: url(https://images.pexels.com/photos/2096622/pexels-photo-2096622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 75%;
+    margin: 0 auto;
+}
+
+
+header{
+    margin: 0 auto;
+    width: 75%;
+    display: flex;
+    justify-content: space-around;
+}
+
+header h1{
+    background-color: rgb(93, 124, 136);
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 2px black;
+    font-style: italic;
+    color: white;
+    border-radius: 10px 10px;
+    padding: 5px;
+}
+
+.add_dojo_secion{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.add_ninja_secion{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+header form{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding: 5px;
+    color: white;
+}
+
+section{
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+    height: 380px;
+    overflow: scroll;
+    overflow-x: hidden;
+    border-top: 7px solid rgb(34, 34, 34);
+    border-radius: 50px 5px;
+}
+
+section h1{
+    position: sticky;
+    top: 0;
+    background-color: rgb(93, 124, 136);
+    width: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 2px black;
+    font-style: italic;
+    color: white;
+    border-radius: 10px 10px;
+    margin-bottom: 5px;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+  /* Track */
+::-webkit-scrollbar-track {
+    background: rgb(196, 213, 219); 
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(68, 125, 148); 
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #ffffff; 
+}
+
+footer{
+    position: fixed;
+    bottom: 50px;
+    left: 45%;
+}
+
+small{
+    color: rgb(215, 186, 186);
+    text-shadow: 3px 3px 3px black;
+}
+
+
+.add_button{
+    background-color: rgb(68, 125, 148);
+    color: white;
+    font-weight: bold;
+    margin-top: 2px;
+    align-self: center;
+    font-style: italic;
+    width: 30px;
+    border: none;
+    padding: 5px;
+    width: 50%;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px black;
+    border-radius: 15px 15px;
+}
+
+.add_button:hover{
+    background-color: rgb(85, 82, 82);
+    cursor: pointer;
+    border: 2px 2px 2px solid rgb(85, 82, 82);
+}
+
+
+.form_divs{
+    padding: 5px;
+    font-size: large;
+}
+
+.delete_dojo{
+    margin-left: 10px;
+    padding: 3px;
+    text-decoration: none;
+    background-color: rgb(68, 125, 148);
+    color: white;
+    border: 1px solid black;
+    border-radius: 15px 15px;
+    font-size: 80%;
+    font-style: italic;
+}
+
+.delete_dojo:hover{
+    background-color: rgb(85, 82, 82);
+    cursor: pointer;
+    border: 2px 2px 2px solid rgb(85, 82, 82);
+}
+
+
+.delete_ninja{
+    font-size: smaller;
+    font-style: italic;
+    color: blue;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.delete_ninja:hover{
+    color: rgb(174, 174, 183);
+}
+
+section ul li{
+    color: black;
+    font-weight: bold;
+}
+
+section h3{
+    color: rgb(204, 201, 201);
+}
+
+.ninjas_count{
+    font-weight: bold;
+    color: rgb(226, 223, 223);
+    font-size: 25px;
+}

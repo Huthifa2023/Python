@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Dojos and ninjas tempalte</title>
+</head>
+<body>
+    <main>
+        <header>
+            <div class="add_dojo_secion">
+                <h1>Add a dojo</h1>
+                <form action="/add_dojo" method="post">
+                    {% csrf_token %}
+                    <div class="form_divs">
+                        <label for="dojo_name">Name</label>
+                        <input type="text" name="dojo_name" id="dojo_name" required>
+                    </div>
+                    <div class="form_divs">
+                        <label for="city_name">City </label>
+                        <input type="text" name="city_name" id="city_name" required>
+                    </div>
+                    <div class="form_divs">
+                        <label for="state-code">State </label>
+                        <input type="text" name="state-code" id="state-code" required>
+                    </div>
+
+                    <button class="add_button" type="submit">Add</button>
+                </form>
+            </div>
+
+            <div class="add_ninja_secion">
+                <h1>Add a Ninja</h1>
+                <form action="/add_ninja" method="post">
+                    {% csrf_token %}
+                    <div class="form_divs">
+                        <label for="ninja_first_name">First Name</label>
+                        <input type="text" name="ninja_first_name" id="ninja_first_name" required>
+                    </div>
+                    <div class="form_divs">
+                    <label for="ninja_last_name">Last Name</label>
+                    <input type="text" name="ninja_last_name" id="ninja_last_name" required>
+                    </div>
+                    <div class="form_divs">
+                    <label for="ninjas_dojo">Dojo</label>
+                    <select type="select" name="ninjas_dojo" id="ninjas_dojo" required>            <!--required and value="" and disabled is mandatory for this to work -->  
+                        <option value="" selected disabled hidden>Choose here...</option>      <!-- selected by default, and this opion is disabled, so it will force user to choose -->
+                        {% for x in dojos %}
+                        <option value="{{ x.id }}">{{ x.name }}</option>   <!-- we cannot but {{x}} in value="", cuz form returns text no matter what!!-->
+                        {% endfor %}
+                    </select>
+                    </div>
+
+                    <button class="add_button" type="submit">Add</button>
+                </form>
+            </div>
+        </header>
+
+
+        <section>
+            <h1>All the dojos</h1>
+            {% for i in dojos %}
+            <h3>Ninjas at the <span class="ninjas_count">{{ i.name }} Dojo -- {{ i.ninjas.all.count }} ninjas</span> <a class="delete_dojo" href="/delete_dojo/{{i.id}}">Delete Dojo</a></h3>     <!-- len() functin doesnt work in django template, use |length instead or .count-->
+                {% for x in i.ninjas.all  %}
+            <ul>
+                <li>{{x.first_name}} {{x.last_name}} <a class="delete_ninja" href="/delete_ninja/{{x.id}}">remove ninja</a></li>
+            </ul>
+            {% endfor %}
+            {% endfor %}
+        </section>
+
+
+        <footer>
+            <small>This site developped by Huthifa</small>
+        </footer>
+
+        
+    </main>
+</body>
+</html>
