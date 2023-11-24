@@ -62,10 +62,10 @@
         <section>
             <h1>All the dojos</h1>
             {% for i in dojos %}
-            <h3>Ninjas at the <span class="ninjas_count">{{ i.name }} Dojo -- {{ i.ninjas.all.count }} ninjas</span> <a class="delete_dojo" href="/delete_dojo/{{i.id}}">Delete Dojo</a></h3>     <!-- len() functin doesnt work in django template, use |length instead or .count-->
+            <h3>Ninjas at the <span class="ninjas_count">{{ i.name }} Dojo -- {{ i.ninjas.all.count }} ninjas</span><a onclick="return confirm('This will remove Dojo with all associated ninjas! \nAre you sure?')" class="delete_dojo" href="/delete_dojo/{{i.id}}">Delete Dojo</a></h3>     <!-- len() functin doesnt work in django template, use |length instead or .count-->
                 {% for x in i.ninjas.all  %}
             <ul>
-                <li>{{x.first_name}} {{x.last_name}} <a class="delete_ninja" href="/delete_ninja/{{x.id}}">remove ninja</a></li>
+                <li>{{x.first_name}} {{x.last_name}} <a class="delete_ninja" href="/delete_ninja/{{x.id}}">Remove</a></li>
             </ul>
             {% endfor %}
             {% endfor %}

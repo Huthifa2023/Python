@@ -19,7 +19,6 @@ main{
     margin: 0 auto;
 }
 
-
 header{
     margin: 0 auto;
     width: 75%;
@@ -90,16 +89,18 @@ section h1{
 }
   /* Track */
 ::-webkit-scrollbar-track {
-    background: rgb(196, 213, 219); 
+    background: rgb(68, 125, 148); 
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: rgb(68, 125, 148); 
+    background: rgb(196, 213, 219); 
 }
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #ffffff; 
 }
+
+
 
 footer{
     position: fixed;
@@ -163,18 +164,19 @@ small{
 .delete_ninja{
     font-size: smaller;
     font-style: italic;
-    color: blue;
-    font-weight: bold;
+    color: rgb(192, 192, 199);
+    font-size: 12px;
     margin-left: 20px;
 }
 
 .delete_ninja:hover{
-    color: rgb(174, 174, 183);
+    color: blue;
 }
 
 section ul li{
     color: black;
     font-weight: bold;
+    font-size: 20px;
 }
 
 section h3{
