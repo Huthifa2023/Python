@@ -1,0 +1,88 @@
+class Book(models.Model):
+    title = models.CharField(max_length=255)
+    desc = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
+#   authors = imaginary field to represnt related name     
+
+class Author(models.Model):
+    books = models.ManyToManyField(Book, related_name='authors')
+    first_name = models.CharField(max_length=45)
+    last_name = models.CharField(max_length=45)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
+
+python manage.py makemigrations
+python manage.py migrate
+
+
+python manage.py shell
+
+from books_authors_app.models import Book, Author
+
+Book.objects.create(title="C sharp", desc="very sharp")
+Book.objects.create(title="java", desc="not very sharp")
+Book.objects.create(title="python", desc="very sharp")
+Book.objects.create(title="PHP", desc="not very sharp")
+Book.objects.create(title="Ruby", desc="very sharp")
+
+
+
+Author.objects.create(first_name = "Jane", last_name="Austen")
+Author.objects.create(first_name = "Emily", last_name="Dickinson")
+Author.objects.create(first_name = "Fyodor", last_name="Dostoevsky")
+Author.objects.create(first_name = "William", last_name="Shakespeare")
+Author.objects.create(first_name = "Lau", last_name="Tzu")
+
+note = models.TextField()
+
+python manage.py makemigrations
+python manage.py migrate
+
+x = Book.objects.get(title = "C sharp")
+x.title = "C#"
+x.save()
+
+
+author_x = Author.objects.get(id=4)
+author_x.first_name = "Bill"
+author_x.save()
+
+
+Author_1 = Author.objects.get(id=1)
+Author_1.books.add(Book.objects.get(id=1))
+Author_1.books.add(Book.objects.get(id=2))
+
+
+Author_2 = Author.objects.get(id=2)
+Author_2.books.add(Book.objects.get(id=1), Book.objects.get(id=2), Book.objects.get(id=3))
+
+
+
+Author_3 = Author.objects.get(id=3)
+Author_3.books.add(Book.objects.get(id=1), Book.objects.get(id=2), Book.objects.get(id=3), Book.objects.get(id=4))
+
+
+Author_4 = Author.objects.get(id=4)
+g = Book.objects.all()
+for b in g:
+    Author_4.books.add(b)
+
+
+Book.objects.get(id=3).authors.all()
+
+
+book_3 = Book.objects.get(id=3)
+book_3.authors.all()
+book_3.authors.remove(Author.objects.get(id=2))
+
+
+Author.objects.get(id=5).books.add(Book.objects.get(id=2))
+
+
+Author.objects.get(id=3).books.all()
+
+
+Book.objects.get(id=5).authors.all()
+
+
