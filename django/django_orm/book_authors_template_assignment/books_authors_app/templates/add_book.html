@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>book_author_template</title>
+</head>
+<body>
+
+<style>
+
+body{
+    display: flex;
+    justify-content: space-around;
+    width: 75%;
+    margin-top: 40px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+</style>
+
+
+    <div>
+        <h1>Add book</h1>
+        <form action="/add_this_book" method="post">
+            {% csrf_token %}
+            Title: <input type="text" name="title">
+            description: <textarea name="desc"></textarea>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+
+
+
+    <div>
+        <table>
+            <thead>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Action</th>
+            </thead>
+            {% for b in all_books %}
+            <tr>
+                <td>{{ b.id }}</td>
+                <td>{{ b.title }}</td>
+                <td><a href="display_books/{{ b.id }}">view</a></td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+    </div>
+    
+    
+</body>
+</html>
