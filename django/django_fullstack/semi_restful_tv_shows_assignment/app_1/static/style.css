@@ -1,0 +1,26 @@
+html{
+    height: 100%;
+}
+
+body{
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 50px;
+    background: linear-gradient(white , rgb(155, 175, 155), rgb(33, 32, 32));
+    height: 100%;
+}
+
+h1{
+    font-size: 50px;
+}
+
+a{
+    background-color: rgb(165, 163, 163);
+    border: 1px solid black;
+}
+
+table, thead, tbody, th, td{
+    border: 2px solid black;
+    border-collapse: collapse;
+}

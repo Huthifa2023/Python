@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/shows"> Go back</a>
+    <h1>Edit Show {{ show.id }}</h1>
+
+    <form action="/shows/Update" method="post">
+        {% csrf_token %}
+        <input type="hidden" value="{{ show.id }}" name="id">
+        Title: <input type="text" name="title" value="{{ show.title }}">
+
+        <div>
+            Network: <input type="text" name="network" value="{{ show.network }}">
+            release_Date: <input type="date" name="date" value="{{ date_as_string }}">  <!--we had to convert this in backend, cuz show.date is datetime datatype, and value for this input must be string in YYYY-MM-DD  -->
+        </div>
+        Description: 
+            <textarea name="desc" id="" cols="30" rows="10">{{ show.desc }}</textarea>
+
+            <button type="submit">Update</button>
+    </form>
+
+    <a href="/shows/{{ show.id }}"> Go to show</a>
+</body>
+</html>
