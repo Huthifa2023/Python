@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/shows">Back to All Shows</a>
+    <h1>TV show {{ id }}</h1>
+
+    <h3>Title: {{ title }}</h3>
+    <h3>Network: {{ network }}</h3>
+    <h3>Release Date: {{ date }}</h3>
+    <h3>Description: {{ desc }}</h3>
+    <p></p>
+    <p></p>
+    <p>Last Updated: {{ updated_at }}</p>
+    <a href="/shows/{{ id }}/edit">Edit|</a>
+    <a href="/shows/delete/{{id}}">Delete</a>
+</body>
+</html>

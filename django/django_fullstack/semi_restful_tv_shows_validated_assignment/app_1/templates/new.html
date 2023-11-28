@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Create</title>
+</head>
+<body>
+    <a href="/shows"> Go back</a>
+    <h1>Add a New Show</h1>
+
+    <form action="/shows/create" method="post">
+        {% csrf_token %}
+        Title: <input type="text" name="title" id="" required>      <!--required actualy apply the first rule of validation (data is present)-->
+
+        <div>
+            Network: <input type="text" name="network" id="" required>
+            release_Date: <input type="date" name="date" id="" required>
+        </div>
+
+        Description: 
+            <textarea name="desc" id="" cols="30" rows="10"></textarea>
+
+            <button type="submit">Create</button>
+    </form>
+
+
+    {% if messages %}
+    <ul class="messages"></ul>
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+
+</body>
+</html>
