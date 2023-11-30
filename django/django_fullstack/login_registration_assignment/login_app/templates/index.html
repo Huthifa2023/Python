@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Login & Registration</title>
+</head>
+<body class="h-100 w-75 mx-auto">
+    <header>
+        <h1 class="text-center mt-2 display-4 border-bottom p-1">Wellcome to Reg. App</h1>
+    </header>
+    <main class="w-75 mx-auto d-flex justify-content-between mt-3">
+
+
+        <div>
+            <h1>Login</h1>
+            <form method="post" action="/login">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg">Login</button>
+                <small id="emailHelp" class="form-text text-muted">You don't have Account? Sign Up!</small>
+            </form>
+        </div>
+
+
+        {% if messages %}	      
+        <ul class="messages">   
+        {% for message in messages %}    
+        <li {% if message.tags %} class="alert alert-danger"{% endif %}>{{ message }}</li>    
+        {% endfor %}
+        </ul>
+        {% endif %}
+
+
+        <div class="w-50 border-secondary border p-3">
+            <h1>Registration</h1>
+            <form action="/register" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="first_name">First Name</label>
+                    <input name="first_name" type="text" class="form-control" id="first_name" placeholder="First Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Last Name</label>
+                    <input name="last_name" type="text" class="form-control" id="last_name" placeholder="Last Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email</label>
+                    <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Confirm Password</label>
+                    <input name="password_2" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password confiramtion" required>
+                </div>
+                <div class="form-group">
+                    <label for="birth_day">Age</label>
+                    <input name="birth_day" type="date" class="form-control" id="birth_day" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Sign Up!</button>
+            </form>
+        </div>
+
+
+    </main>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Wellcome</title>
+</head>
+<body class="h-100 w-75 mx-auto">
+    <h1 class="text-center mt-2 display-4 border-bottom p-1">Wellcome to Reg. App</h1>
+    <main class="w-75 mx-auto mt-3">
+        <h2 class="text-center">Success! Wellcome {{ request.session.first_name }} {{ request.session.last_name }}!</h2>
+        <h3 class="text-center text-success">successfully registerd (or logged in)!</h3>
+
+        <ul class="list-group text-center w-50 mx-auto">
+            <li class="list-group-item list-group-item-info">First_name: {{ request.session.first_name }}</li>
+            <li class="list-group-item list-group-item-info">Last_name: {{ request.session.last_name }}</li>
+            <li class="list-group-item list-group-item-info">Email: {{ request.session.email }}</li>
+            <li class="list-group-item list-group-item-info">Age: {{ request.session.age }}</li>
+        </ul>
+
+        <a class="btn btn-lg btn-warning" href="/logout">Log Out</a>
+
+    </main>
+</body>
+</html>
