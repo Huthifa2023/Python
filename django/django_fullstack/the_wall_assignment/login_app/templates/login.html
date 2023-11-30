@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>login & regsiter</title>
+</head>
+<body class="h-100 w-75 mx-auto text-center">
+    <h1>Wellcome to Wall</h1>
+    <h3>please login to access wall, or create new account</h3>
+
+    <div class="d-flex justify-content-around">
+
+        <form class="w-50 border-right" action="/login/login_request" method="post">
+            {% csrf_token %}
+            <h2>login</h2>
+            email: 
+            <input type="email" name="email" id="" required>
+            password: 
+            <input type="password" name="password" id="" required>
+            <button class="btn btn-primary" type="submit">login</button>
+        </form>
+
+
+
+
+        <form class="w-50" action="/login/add_user" method="post">
+            {% csrf_token %}
+            <h2>signup</h2>
+            email: 
+            <input type="email" name="email" id="" required>
+            password: 
+            <input type="password" name="password" id="" required>
+            first_name: 
+            <input type="text" name="first_name" id="" required>
+            last_name: 
+            <input type="text" name="last_name" id="" required>
+            <button class="btn btn-primary" type="submit">add_user</button>
+        </form>
+
+    </div>
+
+</body>
+</html>
