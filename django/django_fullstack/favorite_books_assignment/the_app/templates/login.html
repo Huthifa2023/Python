@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Login & Registration</title>
+</head>
+<body class="h-100 w-75 mx-auto text-center">
+    <header>
+        <h1>Wellcome to Books</h1>
+    </header>
+
+    <main class="d-flex justify-content-around">
+
+        <div class="p-2 w-100">
+            <h2>Registration</h2>
+            <form class="form" action="/add_user/" method="post">
+                {% csrf_token %}
+                <div class="form-group mb-2 form-row">
+                    <label class="col" for="first_name">First Name</label>
+                    <input class="form-control col"  type="text" name="first_name" id="first_name" required>
+                </div>
+                <div class="form-group mb-2 form-row">
+                    <label class="col" for="last_name">Last Name</label>
+                    <input class="form-control col" type="text" name="last_name" id="last_name" required>
+                </div>
+                <div class="form-group mb-2 form-row">
+                    <label class="col" for="email">Email</label>
+                    <input class="form-control col" type="text" name="email" id="email" required>
+                </div>
+                <div class="form-group mb-2 form-row">
+                    <label class="col" for="password">Password</label>
+                    <input class="form-control col" type="password" name="password" id="password" required>
+                </div>
+                <div class="form-group mb-2 form-row">
+                    <label class="col" for="password2">Confirm Password</label>
+                    <input class="form-control col" type="password" name="password2" id="password2" required>
+                </div>
+                <div>
+                    <button class="btn btn-primary" type="submit">Create User</button>
+                </div>
+            </form>
+        </div> 
+
+
+        {% if messages %}	     
+        <ul class="messages">    
+            {% for message in messages %}    
+                <li {% if message.tags == 'error' %} style="color: red; font-style: italic;" {% endif %} {% if message.tags == 'success' %} style="color: green; font-style: italic;" {% endif %}>{{ message }}</li>    
+            {% endfor %}
+        </ul>
+        {% endif %}
+        
+
+
+        <div class="p-2 w-100">
+            <h2>Login</h2>
+            <form action="/login_request/" method="post">
+                {% csrf_token %}
+                <div class="form-group mb-2 form-row">
+                    <label class="col" for="email">Email</label>
+                    <input class="form-control col" type="email" name="email" id="email" required>
+                </div>
+                <div class="form-group mb-2 form-row">
+                    <label class="col" for="password">Password</label>
+                    <input class="form-control col" type="password" name="password" id="password" required>
+                </div>
+                <div>
+                    <button class="btn btn-primary" type="submit">Login</button>
+                </div>
+
+            </form>
+        </div>
+
+
+    </main>
+
+
+    <footer></footer>
+</body>
+</html>

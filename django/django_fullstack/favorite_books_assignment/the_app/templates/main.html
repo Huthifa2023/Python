@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Favorites Books App</title>
+</head>
+<body class="h-100 w-75 mx-auto text-center">
+    <header class="d-flex justify-content-between">
+        <h1>Wellcome {{ user.first_name }} {{ user.last_name }} *_*</h1>
+        <div> <a class="btn btn-warning" href="/LogOut/">logOut</a> </div>
+    </header>
+
+
+    <main class="p-2">
+        <div>
+            <h3>Add A Favotite Book</h3>
+        {% if messages %}	     
+        <ul class="messages">    
+        {% for message in messages %}    
+            <li {% if message.tags == 'error' %} style="color: red; font-style: italic;" {% endif %} {% if message.tags == 'success' %} style="color: green; font-style: italic;" {% endif %}>{{ message }}</li>    
+        {% endfor %}
+        </ul>
+        {% endif %}
+            <form class="form w-50 mx-auto" action="/add_book/" method="post">
+                {% csrf_token %}
+                <label for="title">Book Title</label>
+                <input class="form-control" type="text" name="title" id="title" required>
+                <label for="desc">Book Description</label>
+                <textarea class="form-control" name="desc" id="desc" cols="20" rows="4" required></textarea>
+                <button class="btn btn-lg btn-primary" type="submit"> Add </button>
+            </form>
+        </div>
+
+        <div>
+            <h3>All books</h3>
+            {% for book in all_books %}
+
+            <ul>
+                <li>
+                    <h5><a href="/view_book/{{book.id}}/">{{ book.title }}</a></h5>
+                    <h6>( added by {{ book.created_by.first_name }} {{ book.created_by.last_name }} )</h6>
+                    {% if book in liked_books %}<p> this is one of your favorites </p>{% endif %}
+                    {% if book not in liked_books %}<p> <a href="/like_book/{{book.id}}/">Add to Favorites</a> </p>{% endif %}
+                </li>
+            </ul>
+
+            {% endfor %}
+        </div>
+
+    </main>
+
+
+
+
+    <footer></footer>
+
+</body>
+</html>

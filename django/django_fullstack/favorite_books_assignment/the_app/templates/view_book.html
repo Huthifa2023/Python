@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>View Book</title>
+</head>
+<body class="h-100 w-75 mx-auto text-center p-2">
+
+    <header class="d-flex justify-content-between">
+        <h1>Wellcome {{ user.first_name }} {{ user.last_name }} *_*</h1>
+        <div> <a class="btn btn-warning" href="/LogOut/">logOut</a> </div>
+    </header>
+
+
+    <main>
+
+        <div>
+            <h2>{{ the_book.title }}</h2>
+            <h4>Added By: {{ the_book.created_by.first_name }} {{ the_book.created_by.last_name }}</h4>
+            <h5>Added_on: {{ the_book.created_at }}</h5>
+            <h5>Last_updated: {{ the_book.updated_at }}</h5>
+            {% if the_book in user.created_books.all %}
+            <form class="form w-50 mx-auto p-3" action="/update_desc/" method="post">
+                {% csrf_token %}
+                <input class="form-control" type="hidden" name="book_id" value="{{ the_book.id }}">
+                <textarea class="form-control" name="desc" id="desc" cols="20" rows="4" required>{{ the_book.desc }}</textarea>
+                <button class="btn btn-info" type="submit"> update </button>
+            </form>
+            <a class="btn btn-danger" href="/delete_book/{{ the_book.id }}/">Delete Book</a>
+            {% endif %}
+            {% if the_book not in user.created_books.all %}
+            <h6>Description: {{ the_book.desc }}</h6>
+            {% endif %}
+
+        </div>
+
+
+
+
+        <div>
+            <h2>Users who likes this book:</h2>
+            <ul>
+                {% for x in the_book.liked_by.all %}
+                <li>{{ x.first_name }} {{ x.last_name }}</li>
+                {% endfor %}
+            </ul>
+
+            {% if the_book in user.liked_books.all %}
+            <a class="btn btn-primary" href="/unlike_book/{{ the_book.id }}/"> remove from favorites </a>
+            {% endif %}
+
+            {% if the_book not in user.liked_books.all %}
+            <a class="btn btn-primary" href="/like_book/{{ the_book.id }}/"> Add to your favorites </a>
+            {% endif %}
+
+        </div>
+
+
+    </main>
+    
+</body>
+</html>
