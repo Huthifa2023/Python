@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/dashboard.css'%}">
+    <title>Details</title>
+</head>
+<body class="w-75 mx-auto">
+    <header class="d-flex justify-content-between mt-4">
+        <div>
+        <h1>Sasquatch Websighting</h1>
+        <h3>{{sight.location}} on {{ sight.date }}</h3>
+        </div>
+
+        <div>
+            <h3>{{user.first_name}} {{user.last_name}}</h3>
+            <a class="btn btn-secondary" href="/dashboard">Dashboard</a>
+            <a class="btn btn-secondary" href="/logout">LogOut</a>  
+        </div>
+    </header>
+
+    <main class="mx-auto mt-4 d-flex justify-content-around">
+
+        <div class="border w-75">
+        <h5>what happend:</h5>
+        <p class=" p-1 mt-4">{{ sight.desc }}</p>
+
+        <h5 class=" p-1 mt-3">number of Sasquatches: {{ sight.number_sasquatches }}</h5>
+
+        <h3 class=" p-1 mt-4">Reported by: {{sight.user.first_name}} {{sight.user.last_name}}</h3>
+    </div>
+
+    <div>
+        <ul>
+            <h5 style="color: blueviolet;">skeptics</h5>
+            {% for skep in sight.skeptics.all %}
+            <li style="color: blueviolet;">{{skep.first_name}} {{skep.last_name}}</li>
+            {% endfor %}
+        </ul>
+        {% if user in sight.skeptics.all %} <a class="btn btn-outline-dark" style="color: blueviolet;" href="/remove_skeptics/{{sight.id}}/{{user.id}}">I Believe!</a> {% endif %}
+        {% if user not in sight.skeptics.all %} <a class="btn btn-outline-dark" style="color: blueviolet;" href="/add_skeptics/{{sight.id}}/{{user.id}}">I'm skeptical</a> {% endif %}
+        
+    </div>
+
+    </main>
+
+
+
+
+    <script src="{% static 'js/dashboard.js' %}"></script>
+</body>
+</html>

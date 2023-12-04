@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/dashboard.css'%}">
+    <title>New</title>
+</head>
+<body class="w-75 mx-auto">
+    <header class="d-flex justify-content-around">
+        <div>
+        <h1>Sasquatch Websighting</h1>
+        <h3>Report Sightings</h3>
+        </div>
+
+        <div>
+            <h3>{{user.first_name}} {{user.last_name}}</h3>
+            <a class="btn btn-secondary mt-2" href="/dashboard">dashboard</a>
+            <a class="btn btn-secondary mt-2" href="/logout">LogOut</a>
+        </div>
+    </header>
+
+
+    <main>
+        <form class="form w-75 mx-auto" action="/report_new_sight" method="post">
+            {% csrf_token %}
+            <p class="text-danger">locaion is required.</p>
+            <input type="hidden" name="current_user_id" value="{{user.id}}">
+            <label for="location">location:</label>
+            <input class="form-control" type="text" name="location" id="location" required>
+
+            <label for="date">Date of Sighting:</label>
+            <input class="form-control" type="date" name="date" id="date" required>
+
+            <label for="number_sasquatches">Number of Sasquatches</label>
+            <input class="form-control" value="0" type="number" name="number_sasquatches" id="number_sasquatches" required>
+
+            <label for="desc">What happend?</label>
+            <textarea class="form-control" name="desc" id="desc" cols="30" rows="10" required>{% if 'hold_desc' in request.session %} {{request.session.hold_desc}} {% endif %} </textarea>
+
+            <button class="btn btn-secondary mt-2" type="submit">Report</button>
+
+            {% if messages %}	     
+                <ul class="messages">    
+                    {% for message in messages %}    
+                        <li {% if message.tags == 'error' %} style="color: red; font-style: italic;" {% endif %} {% if message.tags == 'success' %} style="color: green; font-style: italic;" {% endif %}>{{ message }}</li>    
+                    {% endfor %}
+                </ul>
+                {% endif %}
+        </form>
+    </main>
+
+    
+
+
+    <script src="{% static 'js/dashboard.js' %}"></script>
+</body>
+</html>
